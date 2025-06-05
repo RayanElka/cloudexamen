@@ -1,0 +1,20 @@
+name: Create diagram
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+      
+jobs:
+ 
+  get_data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Update diagram
+        uses: RayanElka/cloudexamen@main
+        with:
+            output_file: "diagram.svg"
+            artifact_name: "diagram"
+
